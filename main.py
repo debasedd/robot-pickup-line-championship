@@ -12,6 +12,10 @@ import os
 
 LINE = "I scanned 4 billion faces and you're the only one my facial recognition keeps flagging as 'do not delete'."
 
+# The gate for this bounty: the entry must be 1 to 200 characters.
+# Fail loudly here rather than shipping an entry the gate would reject.
+assert 1 <= len(LINE) <= 200, f"entry is {len(LINE)} chars, outside 1-200"
+
 
 def main() -> None:
     os.makedirs("/output", exist_ok=True)
